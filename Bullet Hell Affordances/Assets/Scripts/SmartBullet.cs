@@ -5,7 +5,7 @@ using UnityEngine;
 public class SmartBullet : MonoBehaviour
 {
 
-    public float velocity;
+    public float velocity = 1;
     private Rigidbody2D rb, targetRb;
     private Vector2 trajectory;
     

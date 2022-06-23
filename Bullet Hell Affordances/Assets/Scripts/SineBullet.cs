@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicBullet : MonoBehaviour
+public class SineBullet : MonoBehaviour
 {
 
     public float velocity = 1;
     private Rigidbody2D rb;
     private Vector2 startPos, targetPos, trajectory;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+
         startPos = rb.position;
         targetPos = GameObject.Find("Player").GetComponent<Rigidbody2D>().position;
 
@@ -27,7 +27,7 @@ public class BasicBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -35,3 +35,4 @@ public class BasicBullet : MonoBehaviour
         Destroy(this.gameObject);
     }
 }
+
