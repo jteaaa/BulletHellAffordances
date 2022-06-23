@@ -6,17 +6,21 @@ public class BasicBullet : MonoBehaviour
 {
 
     public float velocity;
-    public Rigidbody2D rb;
-    public Vector2 targetPos;
-    private Vector2 startPos, trajectory;
+    private Rigidbody2D rb;
+    private Vector2 startPos, targetPos, trajectory;
 
     
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        
         startPos = rb.position;
+        targetPos = GameObject.Find("Player").GetComponent<Rigidbody2D>().position;
+
         trajectory = targetPos - startPos;
         trajectory /= trajectory.magnitude;
+
         rb.velocity = velocity * trajectory;
     }
 
@@ -24,5 +28,10 @@ public class BasicBullet : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Destroy(this.gameObject);
     }
 }
