@@ -6,6 +6,7 @@ public class BasicBullet : MonoBehaviour
 {
 
     public float velocity = 1;
+    public Explosion explosion;
     private Rigidbody2D rb;
     private Vector2 startPos, targetPos, trajectory;
 
@@ -32,6 +33,7 @@ public class BasicBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Object.Instantiate(explosion, transform.position, new Quaternion(1, 0, 0, 0));
         Destroy(this.gameObject);
     }
 }

@@ -6,6 +6,7 @@ public class SmartBullet : MonoBehaviour
 {
 
     public float velocity = 1;
+    public Explosion explosion;
     private Rigidbody2D rb, targetRb;
     private Vector2 trajectory;
     
@@ -27,6 +28,7 @@ public class SmartBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Object.Instantiate(explosion, transform.position, new Quaternion(1, 0, 0, 0));
         Destroy(this.gameObject);
     }
 }
