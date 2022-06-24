@@ -5,57 +5,50 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public float velocity;
+    public float moveSpeed;
     private Rigidbody2D rb;
+    private Vector2 moveInput;
+
+    public float activeMoveSpeed;
+    public float dashSpeed;
+
+    public float dashLength =.05f, dashCooldown = 1f;
+
+    public float dashCounter;
+    private float dashCoolCounter;
 
     // Start is called before the first frame update
     void Start()
     {
+        activeMoveSpeed = moveSpeed;
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //movement
-        //up
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            rb.velocity = new Vector2(rb.velocity.x, velocity);
-        }
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            rb.velocity = new Vector2(rb.velocity.x, 0);
+        moveInput.x = Input.GetAxisRaw("Horizontal");
+        moveInput.y = Input.GetAxisRaw("Vertical");
+        moveInput.Normalize();
+        rb.velocity = moveInput * activeMoveSpeed;
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            if (dashCoolCounter <= 0 && dashCounter <= 0) {
+                activeMoveSpeed = dashSpeed;
+                dashCounter = dashLength;
+            }
         }
 
-        //left
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            rb.velocity = new Vector2(-velocity, rb.velocity.y);
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+        if (dashCounter > 0) {
+            dashCounter -= Time.deltaTime;
+            if (dashCounter <= 0) {
+                activeMoveSpeed = moveSpeed;
+                dashCoolCounter = dashCooldown;
+            }
         }
 
-        //down
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            rb.velocity = new Vector2(rb.velocity.x, -velocity);
-        }
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            rb.velocity = new Vector2(rb.velocity.x, 0);
-        }
-
-        //right
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            rb.velocity = new Vector2(velocity, rb.velocity.y);
-        }
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+        if (dashCoolCounter > 0) {
+            dashCoolCounter -= Time.deltaTime;
         }
     }
 }
