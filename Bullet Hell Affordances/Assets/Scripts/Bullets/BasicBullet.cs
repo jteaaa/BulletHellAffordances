@@ -31,7 +31,7 @@ public class BasicBullet : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         Object.Instantiate(explosion, transform.position, new Quaternion(1, 0, 0, 0));
         Destroy(this.gameObject);

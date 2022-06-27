@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
         staminaBar.SetSize(1 - dashCoolCounter);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         
         if (other.gameObject.tag == "Bullet")

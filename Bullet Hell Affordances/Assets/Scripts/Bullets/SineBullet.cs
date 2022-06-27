@@ -37,7 +37,7 @@ public class SineBullet : MonoBehaviour
         rb.velocity = new Vector2(transform.right.x, transform.right.y) * velocity * Mathf.Cos(frequency * Time.time % (2 * Mathf.PI)) + velocity * trajectory; //<- and this
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         Object.Instantiate(explosion, transform.position, new Quaternion(1, 0, 0, 0));
         Destroy(this.gameObject);
