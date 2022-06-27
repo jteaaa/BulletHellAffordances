@@ -65,6 +65,10 @@ public class Player : MonoBehaviour
         }
 
         staminaBar.SetSize(1 - dashCoolCounter);
+
+        if (healthLeft <= 0) {
+            Killed();
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
