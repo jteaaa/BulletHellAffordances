@@ -38,7 +38,7 @@ public class Menu : MonoBehaviour
     }
     
     public void ReturnToMenu () {
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("Menu");
     }
     
     public void ExitGame () {

@@ -152,11 +152,11 @@ MonoBehaviour:
   staminaBar: {fileID: 7774390287602795144}
   moveSpeed: 5
   activeMoveSpeed: 0
-  dashSpeed: 15
-  dashLength: 0.25
+  dashSpeed: 13
+  dashLength: 0.15
   dashCooldown: 1
   dashCounter: 0
-  maxHealth: 5
+  maxHealth: 3
   healthLeft: 0
 --- !u!1001 &519839131246884281
 PrefabInstance:
