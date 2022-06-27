@@ -22,9 +22,10 @@ public class Key : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        door.gameObject.SendMessage("addToCollected");
-        this.gameObject.SetActive(false);
-        
+        if (other.gameObject.tag == "Player") { 
+            door.gameObject.SendMessage("addToCollected");
+            this.gameObject.SetActive(false);
+        }
     }
 
 }
