@@ -5,6 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
+    public HealthBar healthbar;
+    public HealthBar staminaBar;
+
     public float moveSpeed = 3f;
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -19,11 +22,17 @@ public class Player : MonoBehaviour
 
     private bool shielded = false;
 
+    public float maxHealth = 10f;
+    public float healthLeft;
+
     // Start is called before the first frame update
     void Start()
     {
         activeMoveSpeed = moveSpeed;
         rb = GetComponent<Rigidbody2D>();
+        staminaBar.SetSize(1f);
+        healthbar.SetSize(1f);
+        healthLeft = maxHealth;
     }
 
     // Update is called once per frame
@@ -39,6 +48,7 @@ public class Player : MonoBehaviour
             if (dashCoolCounter <= 0 && dashCounter <= 0) {
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
+                staminaBar.SetSize(0f);
             }
         }
 
@@ -53,6 +63,8 @@ public class Player : MonoBehaviour
         if (dashCoolCounter > 0) {
             dashCoolCounter -= Time.deltaTime;
         }
+
+        staminaBar.SetSize(1 - dashCoolCounter);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -62,7 +74,8 @@ public class Player : MonoBehaviour
         {
             if (!shielded)
             {                
-                GameObject.Find("Health Text").GetComponent<Health>().health -= 10;
+                healthLeft = healthLeft - 1;
+                healthbar.SetSize(healthLeft / maxHealth);
             }
             else
             {
