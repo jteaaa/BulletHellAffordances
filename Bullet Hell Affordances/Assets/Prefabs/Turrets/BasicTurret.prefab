@@ -182,5 +182,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d609ac31ed4c74346a11e262129e655b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 0.1
+  interval: 1
   bullet: {fileID: 8872055766403771223, guid: a4bba7d59dd052b4b998e53c055ba1c7, type: 3}

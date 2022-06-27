@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class Door : MonoBehaviour
         if (other.gameObject.tag == "Player") {
             if (isUnlocked == true) 
             {   
-                Debug.Log("next scene");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
         
