@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - Shield
+  - Shrink
+  - Dash
   layers:
   - Default
   - TransparentFX

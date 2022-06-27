@@ -76,6 +76,13 @@ public class Player : MonoBehaviour
             shielded = true;
             this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
+
+        if (other.gameObject.tag == "Dash") {
+            moveSpeed = moveSpeed + 2f;
+            activeMoveSpeed = moveSpeed;
+            dashSpeed = dashSpeed + 2f;
+        }
+
     }
 
     public void Killed()
