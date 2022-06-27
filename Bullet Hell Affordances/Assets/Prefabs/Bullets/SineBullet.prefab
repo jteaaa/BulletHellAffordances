@@ -137,5 +137,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 3
-  frequency: 1
+  frequency: 3
   explosion: {fileID: 3719257879180351455, guid: 0e81ab4a55449ca4fbb2124cd2fbdf16, type: 3}
