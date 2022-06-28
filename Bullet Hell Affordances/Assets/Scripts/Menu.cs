@@ -7,10 +7,26 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseScreen;
+    public bool isPaused;
     
     void Start()
     {
         Time.timeScale = 1f; 
+        isPaused = false;
+        Resume();
+    }
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (!isPaused) {
+                Debug.Log("pressed");
+                Pause();
+                isPaused = true;
+            } else {
+                Resume();
+                isPaused = false;
+            }
+        } 
     }
 
     public void StartGame ()
