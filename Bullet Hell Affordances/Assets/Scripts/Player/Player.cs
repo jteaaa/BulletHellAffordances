@@ -79,6 +79,7 @@ public class Player : MonoBehaviour
         {
             if (!shielded)
             {                
+                FindObjectOfType<AudioManager>().Play("hit");
                 healthLeft = healthLeft - 1;
                 healthbar.SetSize(healthLeft / maxHealth);
             }

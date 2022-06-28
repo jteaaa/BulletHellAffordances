@@ -11,22 +11,24 @@ public class Menu : MonoBehaviour
     
     void Start()
     {
+        
         Time.timeScale = 1f; 
         isPaused = false;
-        Resume();
+        //Resume();
+        
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (!isPaused) {
-                Debug.Log("pressed");
-                Pause();
-                isPaused = true;
-            } else {
-                Resume();
-                isPaused = false;
-            }
-        } 
+        // if (Input.GetKeyDown(KeyCode.Escape)) {
+        //     if (!isPaused) {
+        //         Debug.Log("pressed");
+        //         Pause();
+        //         isPaused = true;
+        //     } else {
+        //         Resume();
+        //         isPaused = false;
+        //     }
+        // } 
     }
 
     public void StartGame ()

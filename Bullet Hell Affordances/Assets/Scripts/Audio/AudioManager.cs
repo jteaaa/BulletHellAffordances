@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using System.Diagnostics;
 using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
@@ -21,8 +20,8 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
-        SlideChanged();
-        FindObjectOfType<AudioManager>().Play("Music");
+        //SlideChanged();
+        
 
     }
 
