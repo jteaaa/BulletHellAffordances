@@ -20,6 +20,7 @@ public class Shield : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().Play("powerUp");
             Destroy(this.gameObject);
         }
     }

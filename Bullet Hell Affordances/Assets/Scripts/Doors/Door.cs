@@ -43,6 +43,7 @@ public class Door : MonoBehaviour
         if (other.gameObject.tag == "Player") {
             if (isUnlocked == true) 
             {   
+                FindObjectOfType<AudioManager>().Play("unlock");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }

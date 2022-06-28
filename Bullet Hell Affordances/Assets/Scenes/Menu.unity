@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -927,7 +927,25 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  volumeControl: {fileID: 0}
+  - name: powerUp
+    clip: {fileID: 8300000, guid: 88da9ab4df0cc3340a7e8849438ce8d5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: unlock
+    clip: {fileID: 8300000, guid: c79a14c54f366d648aa7e0daf0ab0984, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: dash
+    clip: {fileID: 8300000, guid: d13eae9fd281fdc47abdd6821a20e5ec, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  volumeControl: {fileID: 503814187}
 --- !u!4 &739149588
 Transform:
   m_ObjectHideFlags: 0

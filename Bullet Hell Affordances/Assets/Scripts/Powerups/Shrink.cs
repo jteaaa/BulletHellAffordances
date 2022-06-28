@@ -20,6 +20,7 @@ public class Shrink : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().Play("powerUp");
             other.gameObject.transform.localScale = new Vector3 (0.65f, 0.65f, 0.65f);
             Destroy(this.gameObject);
         }

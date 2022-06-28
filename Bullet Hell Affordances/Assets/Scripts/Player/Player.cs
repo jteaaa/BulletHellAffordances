@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space)) {
             if (dashCoolCounter <= 0 && dashCounter <= 0) {
+                FindObjectOfType<AudioManager>().Play("dash");
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
                 staminaBar.SetSize(0f);
